@@ -16,21 +16,21 @@ public class Main {
         system.dokonajRezerwacji(klient1, teatr);
         system.dokonajRezerwacji(klient2, koncert);
 // Wyświetl rezerwacje klienta
-        System.out.println("Rezerwacje klienta " + klient1.getImię() + " " + klient1.getNazwisko() + ":");
-        klient1.wyświetlRezerwacje();
+        System.out.println("Rezerwacje klienta " + klient1.getImie() + " " + klient1.getNazwisko() + ":");
+        klient1.wyswietlRezerwacje();
 // Pobierz referencję do wydarzenia z systemu
-        Wydarzenie koncertRef = system.znajdźWydarzenie("Koncert Symphony");
+        Wydarzenie koncertRef = system.znajdzWydarzenie("Koncert Symphony");
 // Modyfikacja wydarzenia przez referencję - wpłynie na wszystkich klientów, którzy mają to wydarzenie
                 System.out.println("\nZmiana ceny koncertu z " + koncertRef.getCena() + " na 150.0 zł");koncertRef.setCena(150.0);
 // Sprawdź czy zmiany są widoczne w rezerwacjach klientów
-        System.out.println("\nRezerwacje klienta " + klient1.getImię() + " " + klient1.getNazwisko() + " po zmianie ceny:");
-        klient1.wyświetlRezerwacje();
-        System.out.println("\nRezerwacje klienta " + klient2.getImię() + " " + klient2.getNazwisko() + " po zmianie ceny:");
-        klient2.wyświetlRezerwacje();
+        System.out.println("\nRezerwacje klienta " + klient1.getImie() + " " + klient1.getNazwisko() + " po zmianie ceny:");
+        klient1.wyswietlRezerwacje();
+        System.out.println("\nRezerwacje klienta " + klient2.getImie() + " " + klient2.getNazwisko() + " po zmianie ceny:");
+        klient2.wyswietlRezerwacje();
 // Klient anuluje rezerwację - operacja na referencjach
-        System.out.println("\nKlient " + klient1.getImię() + " anuluje rezerwację na teatr:");
-        klient1.anulujRezerwację(teatr);
-        klient1.wyświetlRezerwacje();
+        System.out.println("\nKlient " + klient1.getImie() + " anuluje rezerwację na teatr:");
+        klient1.anulujRezerwacje(teatr);
+        klient1.wyswietlRezerwacje();
 // Sprawdź liczbę dostępnych miejsc na koncercie (powinna być o 2 mniejsza od max)
         System.out.println("\nDostępne miejsca na koncercie: " +
                 koncert.getDostępneMiejsca() +

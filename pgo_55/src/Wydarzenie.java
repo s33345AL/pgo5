@@ -6,19 +6,38 @@ public class Wydarzenie {
     private int dostępneMiejsca = 0;
     private double cena;
 
-    public Wydarzenie(String nazwa, double cena, String data, String miejsce) {
+    public Wydarzenie(String nazwa, double cena) {
         this.nazwa = nazwa;
-        this.cena = cena;
-        this.data = data;
-        this.miejsce = miejsce;
+        this.setCena(cena);
     }
 
     public Wydarzenie(String nazwa, double cena, String data) {
-        this(nazwa, cena, data, "Warszawa");
+        this.nazwa = nazwa;
+        this.setCena(cena);
+        this.data = data;
     }
 
-    public Wydarzenie(String nazwa, double cena) {
-        this(nazwa, cena, "03-04-2025");
+    public Wydarzenie(String nazwa, double cena, String data, String miejsce) {
+        this.nazwa = nazwa;
+        this.setCena(cena);
+        this.data = data;
+        this.miejsce = miejsce;
+    }
+    public String toString() {
+        return "Nazwa wydarzenia: " + nazwa + " " +
+                "Data wydarzenia: " + data + " " +
+                "Miejsce wydarzenia: " + miejsce + " " +
+                "Maksymalna liczba miejsc: " + maxLiczbaMiejsc + " " +
+                "Dostępna ilość miejsc: " + dostępneMiejsca;
+    }
+
+    public boolean zarezerwujMiejsce(){
+        if(dostępneMiejsca > 0 && dostępneMiejsca <= maxLiczbaMiejsc){
+            dostępneMiejsca--;
+            return true;
+        }else{
+            return false;
+        }
     }
 
     public String getNazwa() {
@@ -72,22 +91,9 @@ public class Wydarzenie {
     }
 
     public void setCena(double cena) {
-        this.cena = cena;
-    }
-
-    public String toString() {
-        return "Nazwa wydarzenia: " + nazwa + " " +
-                "Data wydarzenia: " + data + " " +
-                "Miejsce wydarzenia: " + miejsce + " " +
-                "Maksymalna liczba miejsc: " + maxLiczbaMiejsc + " " +
-                "Dostępna ilość miejsc: " + dostępneMiejsca;
-    }
-    public boolean zarezerwujMiejsce(){
-        if(dostępneMiejsca > 0 && dostępneMiejsca <= maxLiczbaMiejsc){
-            dostępneMiejsca--;
-            return true;
-        }else{
-            return false;
+        if(cena < 0 ){
+            throw new IllegalArgumentException("Cena nie może być mniejsza od zera");
         }
+        this.cena = cena;
     }
 }

@@ -12,7 +12,22 @@ public class Klient {
         this.email = email;
     }
     public Klient(String imie, String nazwisko) {
-        this(imie, nazwisko, "12345@pjwstk.edu.pl");
+        this.imie = imie;
+        this.nazwisko = nazwisko;
+
+    }
+    public void dodajRezerwacje(Wydarzenie wydarzenie) {
+        listaRezerwacji.add(wydarzenie);
+    }
+
+    public void wyswietlRezerwacje() {
+        for(Wydarzenie wydarzenie : listaRezerwacji) {
+            System.out.println(wydarzenie);
+        }
+    }
+
+    public void anulujRezerwacje(Wydarzenie wydarzenie) {
+        listaRezerwacji.remove(wydarzenie);
     }
 
     public String getImie() {
@@ -37,16 +52,5 @@ public class Klient {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-    public void dodajRezerwacje(Wydarzenie wydarzenie) {
-        listaRezerwacji.add(wydarzenie);
-    }
-    public void wyswietlRezerwacje() {
-        for(Wydarzenie wydarzenie : listaRezerwacji) {
-            System.out.println(wydarzenie);
-        }
-    }
-    public void anulujRezerwacje(Wydarzenie wydarzenie) {
-        listaRezerwacji.remove(wydarzenie);
     }
 }
